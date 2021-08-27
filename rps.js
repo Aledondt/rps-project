@@ -20,7 +20,7 @@ function playRound (playerSelection, computerSelection) {
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
         (playerSelection == 'scissors' && computerSelection == 'paper') ||
         (playerSelection == 'paper' && computerSelection == 'rock')) {
-            playerScore +=1
+            playerScore ++
 
             if (playerScore == 1) {
                 result += "<br>Don't get cocky, it's gonna get rocky" 
@@ -43,7 +43,7 @@ function playRound (playerSelection, computerSelection) {
         } else if (playerSelection == computerSelection) {
             result = ('you must like Tae bo, tie, bro')
         } else {
-            cpuScore += 1
+            cpuScore ++
             if (cpuScore == 1) {
                 result += "<br>Gross, you stink"
             }
@@ -63,6 +63,9 @@ function playRound (playerSelection, computerSelection) {
 
         }
         document.getElementById('result').innerHTML = result
+        PlayerScoreP.textContent = `Player: ${playerScore}`
+        cpuScoreP.textContent = `CPU: ${cpuScore}`
+
         return
 }
 
@@ -71,3 +74,10 @@ buttons.forEach(button=>{
         playRound(button.value)
     })
 })
+
+//Interface
+
+const scoreInfo = document.getElementById('scoreInfo')
+const PlayerScoreP = document.getElementById('playerScore')
+const cpuScoreP = document.getElementById('cpuScore')
+
